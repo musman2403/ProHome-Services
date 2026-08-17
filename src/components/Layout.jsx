@@ -335,35 +335,7 @@ export default function Layout() {
             </div>
           </div>
 
-          {/* 4. Trust Badges & Payment Methods Bar */}
-          <div className="footer-trust-strip">
-            <div className="trust-strip-items">
-              <div className="footer-trust-item">
-                <ShieldCheck size={16} className="text-orange" />
-                <span>100% Upfront Pricing Guarantee</span>
-              </div>
-              <div className="footer-trust-item">
-                <Star size={16} fill="#f59e0b" color="#f59e0b" />
-                <span>4.9/5 Star Verified Customer Rating</span>
-              </div>
-              <div className="footer-trust-item">
-                <Award size={16} className="text-orange" />
-                <span>Master Licensed Technicians</span>
-              </div>
-            </div>
 
-            <div className="footer-payments">
-              <span className="payments-label"><CreditCard size={14} /> Accepted:</span>
-              <div className="payment-tags">
-                <span className="pay-tag">Visa</span>
-                <span className="pay-tag">Mastercard</span>
-                <span className="pay-tag">Amex</span>
-                <span className="pay-tag">Discover</span>
-                <span className="pay-tag">Apple Pay</span>
-                <span className="pay-tag highlight-tag">0% Financing</span>
-              </div>
-            </div>
-          </div>
 
           {/* 5. Bottom Copyright & Disclaimer */}
           <div className="footer-bottom">
