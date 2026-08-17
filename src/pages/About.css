@@ -1,0 +1,35 @@
+/* About specific styles */
+
+.about-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.badges-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .badges-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-muted);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.badge svg {
+  color: var(--accent);
+}

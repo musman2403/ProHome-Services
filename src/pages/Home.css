@@ -1,0 +1,243 @@
+/* Home specific styles */
+
+.hero {
+  background-color: var(--primary);
+  color: white;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(23, 37, 84, 0.8) 100%);
+  z-index: 1;
+}
+
+/* Add a subtle pattern overlay if desired */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: white;
+}
+
+.hero-title .highlight {
+  color: var(--accent);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+  color: #e2e8f0;
+  max-width: 600px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
+/* Trust Bar */
+.trust-bar {
+  background-color: var(--primary-dark);
+  padding: 16px 0;
+  color: white;
+}
+
+.trust-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.trust-icon {
+  color: var(--accent);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: auto;
+}
+
+.service-link:hover {
+  gap: 12px;
+}
+
+/* Split Layout */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 968px) {
+  .split-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.benefits-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.benefit-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.benefits-list h4 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.benefits-list p {
+  color: var(--text-muted);
+}
+
+.placeholder-image {
+  background-color: #cbd5e1;
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.review-text {
+  font-style: italic;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.review-author {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .trust-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
