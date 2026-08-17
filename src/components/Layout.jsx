@@ -1,5 +1,22 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Menu, X, Wrench, Shield, Clock, ChevronRight, Calendar, Star } from 'lucide-react';
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Menu, 
+  X, 
+  Wrench, 
+  Shield, 
+  Clock, 
+  ChevronRight, 
+  Calendar, 
+  Star,
+  ShieldCheck,
+  CheckCircle2,
+  CreditCard,
+  Zap,
+  Award
+} from 'lucide-react';
 import { useState, useEffect } from 'react';
 import './Layout.css';
 
@@ -28,6 +45,18 @@ export default function Layout() {
     { name: 'About Us', path: '/about' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' }
+  ];
+
+  const serviceLinks = [
+    { name: 'Emergency Plumbing', path: '/services' },
+    { name: 'Water Heater Repair', path: '/services' },
+    { name: 'Hydro-Jet Drain Cleaning', path: '/services' },
+    { name: 'HVAC & A/C Repair', path: '/services' },
+    { name: 'Electrical Panels & Wiring', path: '/services' }
+  ];
+
+  const serviceAreas = [
+    'Metro City', 'Northside', 'West End', 'South Suburbs', 'East Valley', 'Oakridge'
   ];
 
   const phoneNumber = "(555) 123-4567";
@@ -178,71 +207,177 @@ export default function Layout() {
         </div>
       </aside>
 
-      {/* Global Footer */}
+      {/* Rebuilt Professional Mobile-First Global Footer */}
       <footer className="footer">
-        <div className="container footer-grid">
-          <div className="footer-col brand-col">
-            <div className="logo footer-logo">
-              <div className="logo-icon-wrapper">
-                <Wrench size={20} className="logo-icon" />
+        <div className="container">
+          {/* 1. Mobile-Optimized Emergency Callout Card */}
+          <div className="footer-emergency-card">
+            <div className="footer-emergency-content">
+              <div className="status-indicator footer-status">
+                <span className="status-dot"></span>
+                <span>On-Call Master Techs • Dispatching in 30 Mins</span>
               </div>
-              <div className="logo-text-group">
-                <span className="logo-title text-white">ProHome</span>
-                <span className="logo-subtitle text-orange">Services</span>
-              </div>
+              <h3>Need Emergency Repairs or a Fast Quote?</h3>
+              <p>Speak directly with our local master technicians. No waiting, no automated phone trees.</p>
             </div>
-            <p className="footer-desc">
-              Your certified local experts for emergency plumbing, heating, cooling, and electrical solutions. Guaranteed upfront pricing.
-            </p>
-            <div className="footer-trust-badges">
-              <div className="trust-pill">
-                <Shield size={14} /> Licensed & Insured
-              </div>
-              <div className="trust-pill">
-                <Star size={14} fill="#f59e0b" color="#f59e0b" /> 5-Star Rated
-              </div>
-            </div>
-          </div>
-          
-          <div className="footer-col">
-            <h4 className="footer-heading">Quick Links</h4>
-            <ul className="footer-links">
-              {navLinks.map(link => (
-                <li key={link.name}>
-                  <Link to={link.path}>{link.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="footer-col">
-            <h4 className="footer-heading">Our Services</h4>
-            <ul className="footer-links">
-              <li><Link to="/services">Emergency Plumbing</Link></li>
-              <li><Link to="/services">Water Heater Install</Link></li>
-              <li><Link to="/services">Drain Jetting & Cleaning</Link></li>
-              <li><Link to="/services">HVAC Repair & A/C</Link></li>
-            </ul>
-          </div>
-          
-          <div className="footer-col">
-            <h4 className="footer-heading">Emergency Contact</h4>
-            <div className="footer-contact">
-              <a href={`tel:${phoneNumber.replace(/[^0-9]/g, '')}`} className="footer-phone-highlight">
+            <div className="footer-emergency-actions">
+              <a href={`tel:${phoneNumber.replace(/[^0-9]/g, '')}`} className="btn btn-primary footer-cta-call">
                 <Phone size={18} />
-                <div>
-                  <strong>{phoneNumber}</strong>
-                  <span>24/7 Dispatch Team</span>
-                </div>
+                <span>Call {phoneNumber}</span>
               </a>
-              <p className="footer-contact-item"><Mail size={15} /> info@homeservicespro.com</p>
-              <p className="footer-contact-item"><MapPin size={15} /> Serving Greater Metro Area</p>
+              <Link to="/contact" className="btn btn-secondary footer-cta-quote">
+                <Calendar size={18} />
+                <span>Book Service Online</span>
+              </Link>
             </div>
           </div>
-        </div>
 
-        <div className="container footer-bottom">
-          <p>&copy; {new Date().getFullYear()} ProHome Services LLC. All rights reserved. Upfront estimates, no hidden charges.</p>
+          {/* 2. Main Footer Grid (Compact 2-Column on Mobile, 4-Column on Desktop) */}
+          <div className="footer-grid">
+            {/* Brand Column */}
+            <div className="footer-col brand-col">
+              <div className="logo footer-logo">
+                <div className="logo-icon-wrapper">
+                  <Wrench size={20} className="logo-icon" />
+                </div>
+                <div className="logo-text-group">
+                  <span className="logo-title text-white">ProHome</span>
+                  <span className="logo-subtitle text-orange">Services</span>
+                </div>
+              </div>
+              <p className="footer-desc">
+                Metro City's top-rated residential plumbing, heating, cooling, and electrical contractors. Licensed, bonded, and insured for total peace of mind.
+              </p>
+              
+              <div className="footer-quick-contact">
+                <a href={`tel:${phoneNumber.replace(/[^0-9]/g, '')}`} className="footer-contact-link">
+                  <Phone size={15} className="contact-link-icon" />
+                  <span>{phoneNumber} (24/7 Dispatch)</span>
+                </a>
+                <a href="mailto:info@homeservicespro.com" className="footer-contact-link">
+                  <Mail size={15} className="contact-link-icon" />
+                  <span>info@homeservicespro.com</span>
+                </a>
+                <div className="footer-contact-link">
+                  <MapPin size={15} className="contact-link-icon" />
+                  <span>100 Central Pkwy, Metro City</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Navigation Links Column */}
+            <div className="footer-col nav-col">
+              <h4 className="footer-heading">Navigation</h4>
+              <ul className="footer-links">
+                {navLinks.map(link => (
+                  <li key={link.name}>
+                    <Link to={link.path}>
+                      <ChevronRight size={14} className="link-arrow" />
+                      <span>{link.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Services Links Column */}
+            <div className="footer-col services-col">
+              <h4 className="footer-heading">Our Services</h4>
+              <ul className="footer-links">
+                {serviceLinks.map(s => (
+                  <li key={s.name}>
+                    <Link to={s.path}>
+                      <ChevronRight size={14} className="link-arrow" />
+                      <span>{s.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Trust & Hours Column */}
+            <div className="footer-col hours-col">
+              <h4 className="footer-heading">Operating Hours</h4>
+              <div className="footer-hours-box">
+                <div className="hours-row">
+                  <span className="hours-day">Mon – Fri:</span>
+                  <span className="hours-time">7:00 AM – 7:00 PM</span>
+                </div>
+                <div className="hours-row">
+                  <span className="hours-day">Saturday:</span>
+                  <span className="hours-time">8:00 AM – 4:00 PM</span>
+                </div>
+                <div className="hours-row highlight-emergency">
+                  <span className="hours-day">Emergency:</span>
+                  <span className="hours-time">24 Hours / 7 Days</span>
+                </div>
+              </div>
+
+              <div className="footer-badge-mini">
+                <ShieldCheck size={16} className="badge-mini-icon" />
+                <div>
+                  <strong>State License #PL-94821</strong>
+                  <span>$2,000,000 Liability Coverage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. Service Areas Tag Cloud */}
+          <div className="footer-service-areas-bar">
+            <span className="service-areas-label">
+              <MapPin size={14} /> Service Areas Covered:
+            </span>
+            <div className="service-areas-chips">
+              {serviceAreas.map(city => (
+                <span key={city} className="city-chip">{city}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* 4. Trust Badges & Payment Methods Bar */}
+          <div className="footer-trust-strip">
+            <div className="trust-strip-items">
+              <div className="footer-trust-item">
+                <ShieldCheck size={16} className="text-orange" />
+                <span>100% Upfront Pricing Guarantee</span>
+              </div>
+              <div className="footer-trust-item">
+                <Star size={16} fill="#f59e0b" color="#f59e0b" />
+                <span>4.9/5 Star Verified Customer Rating</span>
+              </div>
+              <div className="footer-trust-item">
+                <Award size={16} className="text-orange" />
+                <span>Master Licensed Technicians</span>
+              </div>
+            </div>
+
+            <div className="footer-payments">
+              <span className="payments-label"><CreditCard size={14} /> Accepted:</span>
+              <div className="payment-tags">
+                <span className="pay-tag">Visa</span>
+                <span className="pay-tag">Mastercard</span>
+                <span className="pay-tag">Amex</span>
+                <span className="pay-tag">Discover</span>
+                <span className="pay-tag">Apple Pay</span>
+                <span className="pay-tag highlight-tag">0% Financing</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 5. Bottom Copyright & Disclaimer */}
+          <div className="footer-bottom">
+            <div className="footer-bottom-flex">
+              <p>&copy; {new Date().getFullYear()} ProHome Services LLC. All rights reserved.</p>
+              <div className="footer-legal-links">
+                <span>Licensed Master Plumbers & HVAC Contractors</span>
+                <span className="legal-dot">•</span>
+                <span>Privacy Policy</span>
+                <span className="legal-dot">•</span>
+                <span>Terms of Service</span>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

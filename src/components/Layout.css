@@ -420,149 +420,447 @@
   color: #ffffff !important;
 }
 
-/* Global Footer */
+/* ==========================================================================
+   REBUILT PROFESSIONAL GLOBAL FOOTER (Mobile-First)
+   ========================================================================== */
+
 .footer {
-  background-color: var(--primary-dark);
+  background: linear-gradient(180deg, #0a192c 0%, #06101d 100%);
   color: #e2e8f0;
-  padding: 72px 0 32px;
+  padding: 40px 0 28px;
   margin-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid rgba(249, 115, 22, 0.4);
+  position: relative;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 992px) {
   .footer {
-    padding: 48px 0 24px;
-    margin-top: 32px;
+    padding: 64px 0 32px;
+    margin-top: 64px;
   }
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
-  margin-bottom: 48px;
+/* 1. Emergency Callout Card in Footer */
+.footer-emergency-card {
+  background: linear-gradient(135deg, rgba(23, 59, 102, 0.6) 0%, rgba(10, 25, 44, 0.9) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 992px) {
+  .footer-emergency-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 36px;
+    margin-bottom: 56px;
+  }
+}
+
+.footer-status {
+  color: #34d399 !important;
+  font-size: 0.8125rem;
+  margin-bottom: 8px;
+}
+
+.footer-emergency-content h3 {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+@media (max-width: 480px) {
+  .footer-emergency-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+.footer-emergency-content p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: 540px;
+}
+
+.footer-emergency-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .footer-emergency-actions {
+    flex-direction: row;
+    width: auto;
   }
 }
 
-@media (min-width: 1024px) {
+.footer-cta-call, .footer-cta-quote {
+  padding: 12px 20px !important;
+  font-size: 0.9375rem !important;
+  white-space: nowrap;
+}
+
+.footer-cta-quote {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.footer-cta-quote:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 2. Main Footer Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+/* Mobile 2-column layout for navigation and services */
+@media (min-width: 480px) and (max-width: 991px) {
   .footer-grid {
-    grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+  }
+
+  .brand-col {
+    grid-column: span 2;
+  }
+
+  .hours-col {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
     gap: 40px;
+    margin-bottom: 48px;
   }
 }
 
+/* Brand Column */
 .brand-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .footer-desc {
   color: #94a3b8;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   max-width: 320px;
 }
 
-.footer-trust-badges {
+.footer-quick-contact {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 4px;
 }
 
-.trust-pill {
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.contact-link-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Column Headings */
+.footer-heading {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links li a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #e2e8f0;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  padding: 4px 0;
+  transition: all 0.15s ease;
 }
 
-.footer-heading {
-  color: #ffffff;
-  font-size: 1.05rem;
+.footer-links li a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.link-arrow {
+  color: var(--accent);
+  opacity: 0.6;
+  transition: transform 0.15s ease;
+}
+
+.footer-links li a:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Hours Box */
+.footer-hours-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: #cbd5e1;
+}
+
+.hours-day {
+  color: #94a3b8;
+}
+
+.hours-row.highlight-emergency {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 6px;
+  color: var(--accent);
   font-weight: 700;
-  margin-bottom: 18px;
-  letter-spacing: -0.01em;
 }
 
-.footer-links {
+.footer-badge-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+}
+
+.badge-mini-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.footer-badge-mini strong {
+  display: block;
+  font-size: 0.8125rem;
+  color: #ffffff;
+}
+
+.footer-badge-mini span {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+}
+
+/* 3. Service Areas Tag Cloud Bar */
+.footer-service-areas-bar {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.footer-links a {
-  color: #94a3b8;
-  font-size: 0.9375rem;
-  transition: all 0.15s ease;
+@media (min-width: 768px) {
+  .footer-service-areas-bar {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
 }
 
-.footer-links a:hover {
+.service-areas-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
   color: var(--accent);
-  transform: translateX(3px);
+  white-space: nowrap;
 }
 
-.footer-contact {
+.service-areas-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.city-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* 4. Trust Strip & Payment Methods */
+.footer-trust-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-.footer-phone-highlight {
+@media (min-width: 992px) {
+  .footer-trust-strip {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.trust-strip-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .trust-strip-items {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+.footer-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.footer-payments {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(249, 115, 22, 0.12);
-  border: 1px solid rgba(249, 115, 22, 0.25);
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  color: #ffffff;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.footer-phone-highlight:hover {
-  background: rgba(249, 115, 22, 0.2);
-  border-color: var(--accent);
-}
-
-.footer-phone-highlight strong {
-  display: block;
-  font-size: 1.1rem;
-  color: #ffffff;
-}
-
-.footer-phone-highlight span {
+.payments-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.75rem;
-  color: var(--accent);
+  color: #94a3b8;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
-.footer-contact-item {
+.payment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pay-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.pay-tag.highlight-tag {
+  background: rgba(249, 115, 22, 0.15);
+  border-color: rgba(249, 115, 22, 0.35);
+  color: var(--accent);
+}
+
+/* 5. Bottom Legal & Copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
+
+.footer-bottom-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-flex {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-legal-links {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #94a3b8;
-  font-size: 0.875rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 24px;
-  text-align: center;
-  color: #64748b;
-  font-size: 0.8125rem;
+.legal-dot {
+  color: rgba(255, 255, 255, 0.2);
 }
