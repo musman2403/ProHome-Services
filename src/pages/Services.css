@@ -1,70 +1,221 @@
-/* Services specific styles */
-
-.services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+/* Services Hero */
+.services-hero {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  padding: 48px 0;
 }
 
-.service-detail-card {
+@media (max-width: 768px) {
+  .services-hero {
+    padding: 32px 0;
+  }
+}
+
+.services-hero-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .services-hero-title {
+    font-size: 1.75rem;
+  }
+}
+
+.services-hero-subtitle {
+  color: #cbd5e1;
+  font-size: 1rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Services Stack */
+.services-stack {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-@media (min-width: 768px) {
-  .service-detail-card {
-    flex-direction: row;
-    align-items: center;
+.service-block {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .service-block {
+    padding: 20px 16px;
   }
 }
 
-.service-detail-icon {
-  background-color: var(--bg-muted);
-  width: 100px;
-  height: 100px;
+.service-block-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.service-icon-bubble {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--primary-gradient);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  color: var(--primary);
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(15, 39, 68, 0.2);
 }
 
-@media (min-width: 768px) {
-  .service-detail-icon {
-    width: 140px;
-    height: 140px;
+@media (max-width: 480px) {
+  .service-icon-bubble {
+    width: 44px;
+    height: 44px;
   }
 }
 
-.service-detail-content {
+.service-block-title-group {
   flex-grow: 1;
 }
 
-.service-detail-content h2 {
-  font-size: 1.75rem;
-  margin-bottom: 12px;
+.service-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
-.service-detail-desc {
-  font-size: 1.1rem;
-  color: var(--text-muted);
+.service-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--accent);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.service-price-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  background: var(--bg-muted);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.service-block-title-group h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  .service-block-title-group h2 {
+    font-size: 1.15rem;
+  }
+}
+
+.service-block-desc {
+  font-size: 0.9375rem;
+  color: var(--text-body);
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.service-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+/* Service Benefits Grid */
+.service-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
   margin-bottom: 24px;
+  background: var(--bg-subtle);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
 }
 
-.service-features li {
-  background-color: var(--bg-muted);
-  padding: 6px 12px;
-  border-radius: 4px;
+@media (min-width: 640px) {
+  .service-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+.service-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--text-body);
   font-weight: 500;
-  color: var(--primary-dark);
-  font-size: 0.9rem;
+}
+
+.benefit-check {
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+/* Service Block Actions */
+.service-block-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+@media (max-width: 480px) {
+  .service-block-actions {
+    flex-direction: column;
+  }
+  .service-block-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Emergency Assurance Banner */
+.emergency-assurance {
+  background: var(--bg-subtle);
+  padding: 40px 0;
+}
+
+.assurance-box {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .assurance-box {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px 40px;
+  }
+}
+
+.assurance-text h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.assurance-text p {
+  color: #cbd5e1;
+  font-size: 0.9375rem;
+}
+
+.assurance-btn {
+  white-space: nowrap;
 }

@@ -1,9 +1,88 @@
-/* Gallery specific styles */
+/* Gallery Hero */
+.gallery-hero {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  padding: 48px 0;
+}
 
+@media (max-width: 768px) {
+  .gallery-hero {
+    padding: 32px 0;
+  }
+}
+
+.gallery-hero-title {
+  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .gallery-hero-title {
+    font-size: 1.75rem;
+  }
+}
+
+.gallery-hero-subtitle {
+  color: #cbd5e1;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Filter Bar */
+.gallery-filter-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 480px) {
+  .filter-pills-row {
+    justify-content: flex-start;
+  }
+}
+
+.filter-pill-btn {
+  padding: 8px 18px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text-body);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.filter-pill-btn:hover {
+  background: var(--border);
+}
+
+.filter-pill-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Gallery Grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
 }
 
 @media (min-width: 640px) {
@@ -15,36 +94,158 @@
 @media (min-width: 1024px) {
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 }
 
-.gallery-item {
+.gallery-item-card {
   padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.gallery-img {
+.gallery-img-container {
+  position: relative;
   width: 100%;
-  height: 240px;
+  height: 220px;
   overflow: hidden;
+  background: #cbd5e1;
 }
 
-.gallery-info {
-  padding: 20px;
+@media (max-width: 480px) {
+  .gallery-img-container {
+    height: 190px;
+  }
 }
 
-.gallery-info h3 {
-  font-size: 1.25rem;
-  margin-bottom: 4px;
+.gallery-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
 }
 
-.gallery-info p {
+.gallery-item-card:hover .gallery-real-img {
+  transform: scale(1.04);
+}
+
+.gallery-overlay-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10, 25, 44, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.gallery-time-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-dark);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-card-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gallery-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery-type-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gallery-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
-.upsell-section {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.gallery-card-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Contractor Upsell Box */
+.contractor-upsell-box {
+  background: var(--bg-subtle);
+  border: 1.5px dashed var(--accent);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .contractor-upsell-box {
+    flex-direction: row;
+    align-items: center;
+    padding: 32px;
+  }
+}
+
+.upsell-icon-bubble {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.upsell-text {
+  flex-grow: 1;
+}
+
+.upsell-text h3 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.upsell-text p {
+  font-size: 0.9375rem;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+.upsell-action {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .upsell-action {
+    width: auto;
+  }
 }
